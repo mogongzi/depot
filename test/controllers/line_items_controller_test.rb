@@ -23,8 +23,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
 
     assert_select 'h2', 'Your Cart'
-    assert_select '#side #cart td:nth-child(2)', "1\u00D7"
-    assert_select '#side #cart td:nth-child(3)', 'Programming Ruby 1.9'
+    assert_select '#cart td:nth-child(2)', "1\u00D7"
+    assert_select '#cart td:nth-child(3)', 'Programming Ruby 1.9'
   end
 
   test 'should create line_item via ajax' do
@@ -58,6 +58,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to(controller: 'carts', action: 'show', id: @line_item.cart)
+    assert_redirected_to store_index_url()
   end
 end
