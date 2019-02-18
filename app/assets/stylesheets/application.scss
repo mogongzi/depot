@@ -34,7 +34,7 @@
      }
  }
 
- #notic {
+ #notice {
      color: #000 !important;
      border: 2px solid red;
      padding: 1em;
@@ -43,7 +43,7 @@
      font: bold smaller sans-serif;
  }
 
- #notic:empty {
+ #notice:empty {
      display: none;
  }
 
@@ -60,6 +60,7 @@
      #side {
          padding: 1em 2em;
          background: #141;
+         min-width: 300px;
 
          form, div {
              display: inline;

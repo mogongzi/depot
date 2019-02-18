@@ -1,7 +1,7 @@
 <p id="notic"><%= notice %></p>
 <h1>Your Pragmatic Catalog</h1>
 <% @count = session[:counter] %>
-<% if @count > 5 %>
+<% unless @count.nil? || @count < 6 %>
 <h3>The page is visited by you for <%= pluralize(@count, "time") %></h3>
 <% end %>
 <% cache @products do%>
