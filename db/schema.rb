@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190220053322) do
+ActiveRecord::Schema.define(version: 20190221085439) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20190220053322) do
     t.string   "name"
     t.text     "address",    limit: 65535
     t.string   "email"
-    t.integer  "pay_type"
+    t.string   "pay_type",   limit: 14
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
