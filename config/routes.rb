@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'admin' => 'admin#index'
+  get 'admin' => 'admin#index', as: 'admin_index'
 
   controller :sessions do
     get 'login' => :new
