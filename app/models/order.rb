@@ -4,9 +4,9 @@ class Order < ApplicationRecord
   include ActiveModel::Serializers::Xml
 
   enum pay_type: {
-    'Check' => 0,
-    'Credit card' => 1,
-    'Purchase order' => 2
+    check: 'Check',
+    credit_cart: 'Credit card',
+    purchase_order: 'Purchase order'
   }
 
   has_many :line_items, dependent: :destroy

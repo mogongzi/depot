@@ -29,7 +29,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
           name: 'Ryan Ren',
           address: 'Chenhui Road 1001',
           email: 'ryan@example.com',
-          pay_type: 'Check'
+          pay_type: 'check'
         }
       }
 
@@ -46,7 +46,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
       assert_equal 'Ryan Ren', order.name
       assert_equal 'Chenhui Road 1001', order.address
       assert_equal 'ryan@example.com', order.email
-      assert_equal 'Check', order.pay_type
+      assert_equal 'check', order.pay_type
 
       assert_equal 1, order.line_items.size
       line_item = order.line_items[0]
