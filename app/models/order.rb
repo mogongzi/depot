@@ -3,7 +3,7 @@ require 'active_model/serializers/xml'
 class Order < ApplicationRecord
   include ActiveModel::Serializers::Xml
 
-  PAYMENT_TYPES = ['Check', 'Credit card', 'Purchase order']
+  PAYMENT_TYPES = ['Check', 'Credit card', 'Purchase order'].freeze
 
   has_many :line_items, dependent: :destroy
   validates :name, :address, :email, presence: true
