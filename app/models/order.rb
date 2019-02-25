@@ -3,11 +3,7 @@ require 'active_model/serializers/xml'
 class Order < ApplicationRecord
   include ActiveModel::Serializers::Xml
 
-  enum pay_type: {
-    check: 'Check',
-    credit_cart: 'Credit card',
-    purchase_order: 'Purchase order'
-  }
+  enum pay_type: [:check, :credit_card, :purchase_order]
 
   has_many :line_items, dependent: :destroy
   validates :name, :address, :email, presence: true
