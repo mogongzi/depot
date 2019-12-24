@@ -2,7 +2,7 @@
 
 Agile Web Development with Rails 5 - The Depot
 
-* Ruby version: 2.3.7
+* Ruby version: 2.6.4
 
 * Rails version: 5.0.7
 
