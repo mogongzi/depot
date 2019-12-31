@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'admin' => 'admin#index', as: 'admin_index'
 
   controller :sessions do
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
     resources :carts
     root 'store#index', as: 'store_index', via: :all
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
