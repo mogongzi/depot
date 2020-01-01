@@ -9,21 +9,21 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
 #default: &default
-#  adapter: postgresql
+#  adapter: mysql2
 #  encoding: utf8
 #  pool: 5
-#  host: localhost
-#  username: postgres
-#  password: pwd
-#  port: 54321
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: postgres
+  password: pwd
+  port: 54321
 
 development:
   <<: *default
