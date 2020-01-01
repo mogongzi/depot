@@ -16,6 +16,14 @@ default: &default
   username: root
   password:
   socket: /tmp/mysql.sock
+#default: &default
+#  adapter: postgresql
+#  encoding: utf8
+#  pool: 5
+#  host: localhost
+#  username: postgres
+#  password: pwd
+#  port: 54321
 
 development:
   <<: *default
