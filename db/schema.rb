@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2019_02_21_102659) do
 
-  create_table "carts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "carts", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "line_items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "line_items", id: :serial, force: :cascade do |t|
     t.integer "product_id"
     t.integer "cart_id"
     t.datetime "created_at", null: false
@@ -30,16 +33,10 @@ ActiveRecord::Schema.define(version: 2019_02_21_102659) do
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
-  create_table "orders", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "address"
-    t.string "email"
-    t.string "pay_type", limit: 14
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "orders" because of following StandardError
+#   Unknown type 'enum_type' for column 'pay_type'
 
-  create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "image_url"
@@ -48,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_102659) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
     t.datetime "created_at", null: false
