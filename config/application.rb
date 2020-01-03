@@ -17,5 +17,7 @@ module Depot
     # the framework and any gems in your application.
 
     config.active_record.schema_format = :sql
+
+    config.action_mailer.delivery_job = 'ActionMailer::MailDeliveryJob'
   end
 end
