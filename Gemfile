@@ -14,7 +14,7 @@ gem 'rails', '6.0.2.1'
 gem 'pg', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
-# migrate to webpack from assets pipeline
+# migrate to webpack from sprockets
 gem 'webpacker', '~> 4.x'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
