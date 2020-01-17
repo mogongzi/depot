@@ -11,7 +11,7 @@ ruby '~> 2.6.0'
 gem 'rails', '6.0.2.1'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem 'pg', '1.2.1'
+gem 'pg', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # migrate to webpack from sprockets
