@@ -11,7 +11,7 @@ ruby '~> 2.6.0'
 gem 'rails', '6.0.2.1'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem 'pg', '~> 1.2'
+gem 'pg', '1.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # migrate to webpack from sprockets
@@ -37,6 +37,7 @@ gem 'cache_with_locale'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'jquery-rails'
 end
 
 group :development do

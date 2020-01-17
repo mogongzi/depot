@@ -1,8 +1,11 @@
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require_relative '../config/../config/environment'
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
+  # add parallel testing
+  parallelize(workers: 1)
+
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
