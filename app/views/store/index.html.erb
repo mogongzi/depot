@@ -2,20 +2,20 @@
 <h1><%= t('.title_html') %></h1>
 <% @count = session[:counter] %>
 <% unless @count.nil? || @count < 6 %>
-<h3>The page is visited by you for <%= pluralize(@count, "time") %></h3>
+  <h3>The page is visited by you for <%= pluralize(@count, "time") %></h3>
 <% end %>
-<% cache @products do%>
+<% cache @products do %>
   <% @products.each do |product| %>
-    <% cache product do%>
-    <div class="entry" id="<%= product.id %>">
-        <%= link_to asset_pack_path(product.image_url), line_items_path(product_id: product), method: :post, remote: true, skip_pipeline: true %>
+    <% cache product do %>
+      <div class="entry" id="<%= product.id %>">
+        <%= link_to image_pack_tag(product.image_url), line_items_path(product_id: product), method: :post, remote: true %>
         <h3><%= product.title %></h3>
         <%= sanitize(product.description) %>
         <div class="price_line">
           <span class="price"><%= number_to_currency(product.price) %></span>
           <%= button_to t('.add_html'), line_items_path(product_id: product), remote: true %>
         </div>
-    </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>
