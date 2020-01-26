@@ -17,5 +17,6 @@ import "../scss/users.scss"
 require.context('../images', true);
 // setup jQuery with webpack
 import jQuery from 'jquery'
+
 window.$ = jQuery;
 window.jQuery = jQuery;
