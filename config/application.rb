@@ -28,5 +28,8 @@ module Depot
     config.active_record.schema_format = :sql
 
     config.action_mailer.delivery_job = 'ActionMailer::MailDeliveryJob'
+
+    config.i18n.available_locales = %i[en es zh]
+    config.i18n.default_locale = :en
   end
 end
