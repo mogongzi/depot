@@ -1,5 +1,6 @@
-// require("@rails/ujs").start();
-// require("turbolinks").start();
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("jquery");
 // require("@rails/activestorage").start();
 // require("channels");
 // import all scss files
@@ -15,8 +16,3 @@ import "../scss/store.scss"
 import "../scss/users.scss"
 // import all images
 require.context('../images', true);
-// setup jQuery with webpack
-import jQuery from 'jquery'
-
-window.$ = jQuery;
-window.jQuery = jQuery;
