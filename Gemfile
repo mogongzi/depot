@@ -8,14 +8,14 @@ end
 ruby '~> 3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.3.5'
+gem 'rails', '6.0.3.7'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'pg', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # migrate to webpack from sprockets
-gem 'webpacker', '~> 4.x'
+gem 'webpacker', '5.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'bootsnap', '1.4.5'
