@@ -27,3 +27,8 @@ public/assets/*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# ignore solargraph
+.solargraph.yml
+/config/definitions.rb
+
