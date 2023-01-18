@@ -105,6 +105,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.3-x86_64-linux)
+      racc (~> 1.4)
     pg (1.4.4)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -114,7 +116,7 @@ GEM
     puma (4.3.11)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
@@ -186,6 +188,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   activemodel-serializers-xml
