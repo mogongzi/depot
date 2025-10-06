@@ -4,8 +4,8 @@
   <title>Pragprog Books Online Store</title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class='<%= controller.controller_name %>'>
@@ -17,7 +17,7 @@
     <%= submit_tag 'submit' %>
     <%= javascript_tag "$('.locale input').hide()" %>
   <% end %>
-  <img src="<%= asset_pack_path 'media/images/logo.svg' %>" alt="The Pragmatic Bookshelf">
+  <%= image_tag "logo.svg", alt: "The Pragmatic Bookshelf" %>
   <span class="title"><%= @page_title %></span>
 </div>
 <div id="columns">

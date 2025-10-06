@@ -8,4 +8,4 @@ Agile Web Development with Rails 5 - The Depot
 * Rails version: 6.0.2.1
 
 * ~Database: MySQL 5.7~
-* Database: PostgreSQL 12.1
+* Database: PostgreSQL 13.1

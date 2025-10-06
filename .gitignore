@@ -32,3 +32,6 @@ yarn-debug.log*
 .solargraph.yml
 /config/definitions.rb
 
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

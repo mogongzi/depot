@@ -16,24 +16,26 @@
 #  username: root
 #  password:
 #  socket: /tmp/mysql.sock
-default: &default
+
+development:
   adapter: postgresql
   encoding: utf8
   pool: 5
-  host: localhost
-  username: postgres
-  password: pwd
+  host: 127.0.0.1
+  username: root
+  password: abc123
   port: 5432
-
-development:
-  <<: *default
   database: depot_development
+  gssencmode: disable
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: 127.0.0.1
+  username: root
+  password: abc123
+  port: 5432
   database: depot_test
   gssencmode: disable
 
@@ -57,7 +59,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: 127.0.0.1
+  port: 5432
   database: depot_production
   username: depot
   password: <%= ENV['DEPOT_DATABASE_PASSWORD'] %>
