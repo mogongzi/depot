@@ -19,4 +19,15 @@ Product.create!(title: 'Seven Mobile Apps in Seven Weeks',
         </p>},
     image_url: '7apps.jpg',
     price: 26.00)
+
+Product.create!(title: 'Modern Java in Action',
+    description:
+      %{<p>
+        <em>Lambdas, streams, functional and reactive programming</em>
+        Manning's bestselling Java 8 book has been revised for Java 9 and
+        Java 10! In Modern Java in Action, readers build on their existing
+        Java language skills with the newest features and techniques.
+        </p>},
+    image_url: 'mjia.png',
+    price: 43.99)
 #. . .

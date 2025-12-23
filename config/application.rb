@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 module Depot
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
+    config.load_defaults 8.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -26,7 +26,6 @@ module Depot
     # the framework and any gems in your application.
 
     config.active_record.schema_format = :ruby
-    config.action_mailer.delivery_job = 'ActionMailer::MailDeliveryJob'
     config.i18n.available_locales = %i[en es zh]
     config.i18n.default_locale = :en
   end

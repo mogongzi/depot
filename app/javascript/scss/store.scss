@@ -16,6 +16,13 @@
     border-bottom: 1px dotted #77d;
     min-height: 100px;
 
+    .image-add-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
     img {
       width: 80px;
       margin-right: 5px;

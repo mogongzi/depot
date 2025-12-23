@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2020_01_02_090022) do
+ActiveRecord::Schema[8.1].define(version: 2020_01_02_090022) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
@@ -24,40 +24,40 @@ ActiveRecord::Schema[7.2].define(version: 2020_01_02_090022) do
   end
 
   create_table "line_items", id: :serial, force: :cascade do |t|
-    t.integer "product_id"
     t.integer "cart_id"
     t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.integer "quantity", default: 1
-    t.decimal "price", precision: 8, scale: 2
     t.integer "order_id"
+    t.decimal "price", precision: 8, scale: 2
+    t.integer "product_id"
+    t.integer "quantity", default: 1
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
   create_table "orders", id: :serial, force: :cascade do |t|
-    t.string "name"
     t.text "address"
-    t.string "email"
-    t.enum "pay_type", enum_type: "enum_type"
     t.datetime "created_at", precision: nil, null: false
+    t.string "email"
+    t.string "name"
+    t.enum "pay_type", enum_type: "enum_type"
     t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "products", id: :serial, force: :cascade do |t|
-    t.string "title"
+    t.datetime "created_at", precision: nil, null: false
     t.text "description"
     t.string "image_url"
     t.decimal "price", precision: 8, scale: 2
-    t.datetime "created_at", precision: nil, null: false
+    t.string "title"
     t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", precision: nil, null: false
     t.string "name"
     t.string "password_digest"
-    t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 

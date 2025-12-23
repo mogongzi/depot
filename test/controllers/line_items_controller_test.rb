@@ -27,15 +27,16 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_select '#cart td:nth-child(3)', 'Programming Ruby 1.9'
   end
 
-  test 'should create line_item via ajax' do
+  test 'should create line_item via turbo stream' do
     assert_difference('LineItem.count') do
-      post line_items_url, params: { product_id: products(:ruby).id }, xhr: true
+      post line_items_url,
+           params: { product_id: products(:ruby).id },
+           headers: { "Accept" => "text/vnd.turbo-stream.html" }
     end
 
     assert_response :success
-    assert_select_jquery :html, '#cart' do
-      assert_select 'tr#current_item td', /Programming Ruby 1.9/
-    end
+    assert_match(/turbo-stream/, response.body)
+    assert_match(/Programming Ruby 1.9/, response.body)
   end
 
   test 'should show line_item' do
@@ -61,14 +62,19 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to store_index_url
   end
 
-  test 'should destory line_item via ajax' do
-    assert_difference('LineItem.count') do
-      post line_items_url, params: { product_id: products(:ruby).id }, xhr: true
-    end
+  test 'should destroy line_item via turbo stream' do
+    # Use the existing line item fixture (quantity defaults to 1)
+    line_item = line_items(:one)
+
+    # Verify it exists and has cart
+    assert line_item.persisted?
+    assert line_item.cart.present?
+
+    # Make a turbo stream delete request
+    delete line_item_url(line_item),
+           headers: { "Accept" => "text/vnd.turbo-stream.html" }
 
     assert_response :success
-    assert_select_jquery :html, '#cart' do
-      assert_select '#notice', ''
-    end
+    assert_match(/turbo-stream/, response.body)
   end
 end

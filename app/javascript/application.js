@@ -1,21 +1,15 @@
 // Entry point for the build script in your package.json
 // app/javascript/application.js
 
-// Rails UJS (for data-method, data-confirm, CSRF, etc.)
-import Rails from "@rails/ujs"
-Rails.start()
+// Turbo (replaces Turbolinks and @rails/ujs)
+import "@hotwired/turbo-rails"
 
-// Turbolinks (keep for now; later you can switch to Turbo)
-import Turbolinks from "turbolinks"
-Turbolinks.start()
+// Stimulus
+import { Application } from "@hotwired/stimulus"
 
-// jQuery (if you still use it)
-import $ from "jquery"
-window.$ = $
-window.jQuery = $
+const application = Application.start()
+application.debug = false
+window.Stimulus = application
 
-// Example: run code on page load with Turbolinks
-document.addEventListener("turbolinks:load", () => {
-    // your legacy init here
-    // $('.flash').fadeOut(3000)
-})
+// Import Action Cable channel
+import "./channels/products_channel"
