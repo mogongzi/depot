@@ -6,7 +6,7 @@
   <% @products.each do |product| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td>
-        <%= asset_pack_path(product.image_url, class: 'list_image') %>
+        <%= image_tag(product.image_url, class: 'list_image') %>
       </td>
       <td class="list_description">
         <dl>
@@ -17,7 +17,7 @@
       <td class="list_action">
         <%= link_to 'Show', product %><br/>
         <%= link_to 'Edit', edit_product_path(product) %><br/>
-        <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%= button_to 'Destroy', product, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
       </td>
     </tr>
   <% end %>

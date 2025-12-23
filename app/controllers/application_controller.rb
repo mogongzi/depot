@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize
-    if request.format == Mime[:html]
+    if request.format == Mime[:html] || request.format == Mime[:turbo_stream]
       unless User.count.zero? || User.find_by(id: session[:user_id])
         redirect_to login_url, notice: 'Please login'
       end

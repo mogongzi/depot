@@ -12,7 +12,9 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'h1', 'Your Pragmatic Catalog'
 
-    post '/line_items', params: { product_id: java_book.id }, xhr: true
+    post '/line_items',
+         params: { product_id: java_book.id },
+         headers: { "Accept" => "text/vnd.turbo-stream.html" }
     assert_response :success
 
     cart = Cart.find(session[:cart_id])
@@ -24,14 +26,15 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_select 'legend', 'Please Enter Your Details'
 
     perform_enqueued_jobs do
-      post '/orders', params: {
-        order: {
-          name: 'Ryan Ren',
-          address: 'Chenhui Road 1001',
-          email: 'ryan@example.com',
-          pay_type: Order::PAYMENT_TYPES[0]
-        }
-      }
+      post '/orders',
+           params: {
+             order: {
+               name: 'Ryan Ren',
+               address: 'Chenhui Road 1001',
+               email: 'ryan@example.com',
+               pay_type: Order::PAYMENT_TYPES[0]
+             }
+           }
 
       follow_redirect!
 
